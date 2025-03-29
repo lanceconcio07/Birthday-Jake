@@ -1,0 +1,435 @@
+body {
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.poster {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+}
+
+/* Optional: Add a subtle overlay to make the poster content more readable */
+.background-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.1),
+        rgba(0, 0, 0, 0.2)
+    );
+}
+
+.family-name, .name, .date, .description, .location {
+    margin: 1rem 0;
+    color: white;
+}
+
+.family-name {
+    font-size: 24px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+    color: #FFFFFF;
+    text-shadow: 
+        2px 2px 0 #000000,
+        -2px -2px 0 #000000,
+        2px -2px 0 #000000,
+        -2px 2px 0 #000000,
+        0 0 8px rgba(0,0,0,0.8);
+    font-weight: bold;
+}
+
+.memorial-arch {
+    position: relative;
+    margin: 40px 0;
+}
+
+.arch-text {
+    font-size: 36px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+    color: #FFFFFF;
+    text-shadow: 
+        2px 2px 0 #000000,
+        -2px -2px 0 #000000,
+        2px -2px 0 #000000,
+        -2px 2px 0 #000000,
+        0 0 8px rgba(0,0,0,0.8);
+    font-weight: bold;
+}
+
+.arch-text::before,
+.arch-text::after {
+    content: '+';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: #ffd700;
+}
+
+.arch-text::before {
+    left: -30px;
+}
+
+.arch-text::after {
+    right: -30px;
+}
+
+.photo-frame {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #ffd700;
+    position: relative;
+    z-index: 1;
+    box-shadow: 
+        0 0 25px rgba(255, 215, 0, 0.5),
+        0 0 45px rgba(255, 255, 255, 0.8);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Add radial glow behind the photo */
+.photo-frame::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(255, 255, 255, 0.7) 30%,
+        rgba(255, 255, 255, 0.4) 60%,
+        transparent 80%
+    );
+    z-index: -1;
+    filter: blur(10px);
+}
+
+/* Add additional outer glow */
+.photo-frame::after {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    right: -30px;
+    bottom: -30px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 215, 0, 0.4) 0%,
+        rgba(255, 215, 0, 0.2) 40%,
+        transparent 70%
+    );
+    z-index: -2;
+    filter: blur(15px);
+}
+
+.decorative-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.dove {
+    position: absolute;
+    font-size: 40px;
+    color: white;
+}
+
+.dove-left {
+    left: 20%;
+    top: 40%;
+    transform: scaleX(-1);
+}
+
+.dove-right {
+    right: 20%;
+    top: 40%;
+}
+
+.flowers {
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    background: linear-gradient(45deg, #4aa3df, #5fb9e5);
+    clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+    opacity: 0.6;
+}
+
+.flowers-left {
+    left: 15%;
+    bottom: 20%;
+    transform: rotate(-30deg);
+}
+
+.flowers-right {
+    right: 15%;
+    bottom: 20%;
+    transform: rotate(30deg);
+}
+
+.name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5em;
+    color: #FFD700;
+    margin: 30px 0 10px;
+    text-shadow: 
+        3px 3px 0 #000000,
+        -3px -3px 0 #000000,
+        3px -3px 0 #000000,
+        -3px 3px 0 #000000,
+        0 0 15px rgba(255,215,0,0.7);
+    font-weight: bold;
+}
+
+.date {
+    font-size: 24px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    color: #FFFFFF;
+    text-shadow: 
+        2px 2px 0 #000000,
+        -2px -2px 0 #000000,
+        2px -2px 0 #000000,
+        -2px 2px 0 #000000,
+        0 0 8px rgba(0,0,0,0.8);
+    font-weight: bold;
+}
+
+.description {
+    font-size: 20px;
+    line-height: 1.6;
+    margin: 30px auto;
+    max-width: 600px;
+    font-style: italic;
+    color: #FFFFFF;
+    text-shadow: 
+        2px 2px 0 #000000,
+        -2px -2px 0 #000000,
+        2px -2px 0 #000000,
+        -2px 2px 0 #000000,
+        0 0 8px rgba(0,0,0,0.8);
+    font-weight: bold;
+}
+
+.location {
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 30px;
+    color: #FFFFFF;
+    text-shadow: 
+        2px 2px 0 #000000,
+        -2px -2px 0 #000000,
+        2px -2px 0 #000000,
+        -2px 2px 0 #000000,
+        0 0 8px rgba(0,0,0,0.8);
+    font-weight: bold;
+}
+
+/* Heavenly light rays */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at 50% 0%,
+        rgba(255, 255, 255, 0.9),
+        rgba(255, 255, 255, 0.4) 40%,
+        transparent 70%
+    );
+    animation: rays 10s infinite;
+    z-index: 0;
+}
+
+/* Animated light rays */
+@keyframes rays {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+/* Cloud effect containers */
+.cloud-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Individual clouds */
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 100px;
+    filter: blur(20px);
+    opacity: 0.8;
+    box-shadow: 
+        0 0 50px 20px rgba(255, 255, 255, 0.8),
+        0 0 100px 60px rgba(255, 255, 255, 0.6);
+}
+
+.cloud-1 {
+    top: 10%;
+    left: 10%;
+    width: 300px;
+    height: 100px;
+}
+
+.cloud-2 {
+    top: 15%;
+    right: 15%;
+    width: 250px;
+    height: 80px;
+}
+
+.cloud-3 {
+    bottom: 20%;
+    left: 20%;
+    width: 280px;
+    height: 90px;
+}
+
+.cloud-4 {
+    bottom: 25%;
+    right: 25%;
+    width: 320px;
+    height: 110px;
+}
+
+/* Add a subtle vignette effect */
+.poster::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+    pointer-events: none;
+}
+
+/* Corner light/cloud effects */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.3),
+        transparent 70%
+    );
+    filter: blur(30px);
+    z-index: 0;
+}
+
+body::before {
+    top: -50px;
+    left: -50px;
+}
+
+body::after {
+    bottom: -50px;
+    right: -50px;
+}
+
+/* Add corner lights to poster */
+.poster::before,
+.poster::after {
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.15),
+        transparent 70%
+    );
+    filter: blur(20px);
+}
+
+.poster::before {
+    top: 0;
+    left: 0;
+}
+
+.poster::after {
+    bottom: 0;
+    right: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 850px) {
+    .poster {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .photo-frame {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .name {
+        font-size: 36px;
+    }
+    
+    .arch-text {
+        font-size: 28px;
+    }
+}
