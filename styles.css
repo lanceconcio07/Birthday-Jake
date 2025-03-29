@@ -27,10 +27,10 @@ body {
     padding: 2rem;
     text-align: center;
     color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(5px);
     border-radius: 15px;
+    z-index: 1;
 }
 
 /* Optional: Add a subtle overlay to make the poster content more readable */
@@ -355,6 +355,7 @@ body::after {
         width: 95%;
         padding: 1rem;
         margin: 1rem auto;
+        background: rgba(0, 0, 0, 0.3);
     }
 
     .photo-frame {
@@ -365,6 +366,13 @@ body::after {
     .family-name {
         font-size: 20px;
         margin-bottom: 20px;
+        text-shadow: 
+            2px 2px 0 #000000,
+            -2px -2px 0 #000000,
+            2px -2px 0 #000000,
+            -2px 2px 0 #000000,
+            0 0 12px rgba(0,0,0,1);
+        font-weight: bold;
     }
 
     .arch-text {
@@ -375,6 +383,13 @@ body::after {
     .name {
         font-size: 2em;
         margin: 15px 0 5px;
+        color: #FFD700;
+        text-shadow: 
+            2px 2px 0 #000000,
+            -2px -2px 0 #000000,
+            2px -2px 0 #000000,
+            -2px 2px 0 #000000,
+            0 0 15px rgba(0,0,0,1);
     }
 
     .date {
@@ -400,6 +415,7 @@ body::after {
     .background-container {
         height: 100vh;
         object-fit: cover;
+        filter: brightness(0.8);
     }
 }
 
