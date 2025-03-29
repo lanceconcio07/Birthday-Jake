@@ -412,7 +412,7 @@ body::after {
         padding: 10px;
     }
 
-    .background-container {
+    .background-container { 
         height: 100vh;
         object-fit: cover;
         filter: brightness(0.8);
